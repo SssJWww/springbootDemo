@@ -1,10 +1,16 @@
 #!/bin/groovy
 
 pipeline {
-    agent any
+    agent docker
 //     agent {
-//         label any
+//         docker {
+//             image
+//         }
 //     }
+    environment {
+        DOCKER_IMAGE = 'demo'
+        DOCKER_TAG = 'v1'
+    }
 
     stages {
         stage('Initialization') {
@@ -19,7 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t demo:v1 -f Dockerfile .'
+                    sh 'docker build -t demo:v1 .'
                 }
             }
         }
