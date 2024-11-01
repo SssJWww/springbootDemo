@@ -1,12 +1,10 @@
 #!/bin/groovy
 
 pipeline {
-    agent any
-//     agent {
-//         docker {
-//
-//         }
-//     }
+//     agent any
+    agent {
+        label 'docker-node'
+    }
     environment {
         DOCKER_IMAGE = 'demo'
         DOCKER_TAG = 'v1'
