@@ -3,7 +3,7 @@
 pipeline {
     //agent any
     agent {
-        label 'allen'
+        label any
     }
 
     stages {
