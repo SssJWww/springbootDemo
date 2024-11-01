@@ -3,7 +3,7 @@
 pipeline {
 //     agent any
     agent {
-        image 'docker"latest'
+        image 'docker:latest'
     }
     environment {
         DOCKER_IMAGE = 'demo'
