@@ -1,12 +1,12 @@
 #!/bin/groovy
 
 pipeline {
-//     agent any
-    agent {
-        docker {
-            image 'docker:latest'
-        }
-    }
+    agent any
+//     agent {
+//         docker {
+//             image 'docker:latest'
+//         }
+//     }
     environment {
         DOCKER_IMAGE = 'demo'
         DOCKER_TAG = 'v1'
