@@ -10,6 +10,7 @@ pipeline {
         stage('Initialization') {
             steps {
                 script {
+                    git url: 'https://github.com/SssJWww/springbootDemo.git', branch: 'main'
                     echo 'init success'
                 }
             }
