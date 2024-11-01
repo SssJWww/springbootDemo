@@ -18,7 +18,15 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo 'build success'
+                    sh 'docker build -t demo:v1 .'
+                }
+            }
+        }
+
+        stage('Run in docker') {
+            steps {
+                script {
+                    sh 'docker run -d -p 8088:8866 --name demo demo:v1'
                 }
             }
         }
