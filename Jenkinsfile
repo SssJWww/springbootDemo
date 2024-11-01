@@ -1,10 +1,10 @@
 #!/bin/groovy
 
 pipeline {
-    //agent any
-    agent {
-        label any
-    }
+    agent any
+//     agent {
+//         label any
+//     }
 
     stages {
         stage('Initialization') {
