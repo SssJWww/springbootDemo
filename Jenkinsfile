@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t demo:v1 .'
+                    sh 'docker build -t demo:v1 -f Dockerfile .'
                 }
             }
         }
