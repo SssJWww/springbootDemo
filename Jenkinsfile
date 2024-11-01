@@ -9,13 +9,17 @@ pipeline {
     stages {
         stage('Initialization') {
             steps {
-                echo 'init success'
+                script {
+                    echo 'init success'
+                }
             }
         }
 
         stage('Build') {
             steps {
-                echo 'build success'
+                script {
+                    echo 'build success'
+                }
             }
         }
     }
