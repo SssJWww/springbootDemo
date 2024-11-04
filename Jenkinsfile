@@ -4,6 +4,7 @@ pipeline {
 //     agent any
     agent {
         docker {
+            agent any
             image 'docker:latest'
             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
         }
