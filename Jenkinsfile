@@ -26,7 +26,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}", "-f Dockerfile .")
+//                     docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}", "-f Dockerfile .")
+                    sh 'docker build -t demo:v1 -f Dockerfile .'
                 }
             }
         }
