@@ -1,13 +1,13 @@
-#!/bin/groovy
+// #!/bin/groovy
 
 pipeline {
-    agent any
-//     agent {
-//         docker {
-//             image 'docker:latest'
-//             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-//         }
-//     }
+//     agent any
+    agent {
+        docker {
+            image 'docker:latest'
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     environment {
         DOCKER_IMAGE = 'demo'
         DOCKER_TAG = 'v1'
