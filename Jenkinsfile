@@ -1,13 +1,13 @@
 #!/bin/groovy
 
 pipeline {
-//     agent any
-    agent {
-        docker {
-            agent any
-            image 'docker:latest'
-            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-        }
+    agent any
+//     agent {
+//         docker {
+//             agent any
+//             image 'docker:latest'
+//             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+//         }
     }
     environment {
         DOCKER_IMAGE = 'demo'
@@ -18,7 +18,7 @@ pipeline {
         stage('Initialization') {
             steps {
                 script {
-                    git url: 'https://github.com/SssJWww/springbootDemo.git', branch: 'main'
+//                     git url: 'https://github.com/SssJWww/springbootDemo.git', branch: 'main'
                     echo 'init success'
                 }
             }
