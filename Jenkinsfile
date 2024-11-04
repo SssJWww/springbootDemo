@@ -8,7 +8,7 @@ pipeline {
 //             image 'docker:latest'
 //             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
 //         }
-    }
+//     }
     environment {
         DOCKER_IMAGE = 'demo'
         DOCKER_TAG = 'v1'
