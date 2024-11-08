@@ -1,44 +1,30 @@
 #!/bin/groovy
 
+def DOCKER_IMAGE = 'demo'
+def DOCKER_TAG = 'v2'
+
 pipeline {
     agent any
-//     agent {
-//         docker {
-//             agent any
-//             image 'docker:latest'
-//             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
-//         }
-//     }
-    environment {
-        DOCKER_IMAGE = 'demo'
-        DOCKER_TAG = 'v1'
-    }
 
     stages {
         stage('Initialization') {
             steps {
                 script {
-//                     git url: 'https://github.com/SssJWww/springbootDemo.git', branch: 'main'
                     echo 'init success'
                 }
             }
         }
 
-        stage('Build') {
+        stage('Build and Push image') {
             steps {
                 script {
-//                     docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}", "-f Dockerfile .")
-                    sh 'docker build -t demo:v1 -f Dockerfile .'
+                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}", "-f Dockerfile .")
+//                     sh 'docker build -t demo:v1 -f Dockerfile .'
+                    sh "docker tag springdemo:${DOCKER_TAG} sssjwww/demolist:${DOCKER_TAG}"
+                    sh "docker push sssjwww/demolist:${DOCKER_TAG}"
                 }
             }
         }
 
-        stage('Run in docker') {
-            steps {
-                script {
-                    sh 'docker run -d -p 8088:8866 --name demo demo:v1'
-                }
-            }
-        }
     }
 }
