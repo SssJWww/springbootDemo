@@ -28,7 +28,7 @@ pipeline {
 //                     sh "docker push sssjwww/demolist:${DOCKER_TAG}"
 //                 }
 //             }
-//         }
+        }
 
     }
 }
